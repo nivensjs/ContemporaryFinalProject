@@ -17,14 +17,14 @@ namespace FavoriteThingsAPI.Controllers
             _context = context;
         }
 
-        // GET: api/FavoriteSuperheroMedia
+        // GET
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FavoriteSuperheroMedia>>> GetFavoriteSuperheroMedia(int? id)
         {
             if (id == null || id == 0)
             {
                 var superheroMedia = await _context.FavoriteSuperheroMedia.Take(5).ToListAsync();
-                Console.WriteLine("SuperheroMedia: " + JsonConvert.SerializeObject(superheroMedia)); // Debugging log
+                Console.WriteLine("SuperheroMedia: " + JsonConvert.SerializeObject(superheroMedia));
                 return superheroMedia;
             }
 
@@ -38,7 +38,7 @@ namespace FavoriteThingsAPI.Controllers
             return Ok(favoriteSuperheroMedia);
         }
 
-        // POST: api/FavoriteSuperheroMedia
+        // POST
         [HttpPost]
         public async Task<ActionResult<FavoriteSuperheroMedia>> PostFavoriteSuperheroMedia(FavoriteSuperheroMedia favoriteSuperheroMedia)
         {
@@ -48,7 +48,7 @@ namespace FavoriteThingsAPI.Controllers
             return CreatedAtAction("GetFavoriteSuperheroMedia", new { id = favoriteSuperheroMedia.Id }, favoriteSuperheroMedia);
         }
 
-        // PUT: api/FavoriteSuperheroMedia/5
+        // PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFavoriteSuperheroMedia(int id, FavoriteSuperheroMedia favoriteSuperheroMedia)
         {
@@ -63,7 +63,7 @@ namespace FavoriteThingsAPI.Controllers
             return NoContent();
         }
 
-        // DELETE: api/FavoriteSuperheroMedia/5
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFavoriteSuperheroMedia(int id)
         {

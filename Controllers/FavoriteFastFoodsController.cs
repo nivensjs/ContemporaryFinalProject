@@ -17,14 +17,14 @@ namespace FavoriteThingsAPI.Controllers
             _context = context;
         }
 
-        // GET: api/FavoriteFastFoods
+        // GET
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FavoriteFastFood>>> GetFavoriteFastFoods(int? id)
         {
             if (id == null || id == 0)
             {
                 var foods = await _context.FavoriteFastFoods.Take(5).ToListAsync();
-                Console.WriteLine("Foods: " + JsonConvert.SerializeObject(foods)); // Debugging log
+                Console.WriteLine("Foods: " + JsonConvert.SerializeObject(foods));
                 return foods;
             }
 
@@ -38,7 +38,7 @@ namespace FavoriteThingsAPI.Controllers
             return Ok(favoriteFastFood);
         }
 
-        // POST: api/FavoriteFastFoods
+        // POST
         [HttpPost]
         public async Task<ActionResult<FavoriteFastFood>> PostFavoriteFastFood(FavoriteFastFood favoriteFastFood)
         {
@@ -48,7 +48,7 @@ namespace FavoriteThingsAPI.Controllers
             return CreatedAtAction("GetFavoriteFastFoods", new { id = favoriteFastFood.Id }, favoriteFastFood);
         }
 
-        // PUT: api/FavoriteFastFoods/5
+        // PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFavoriteFastFood(int id, FavoriteFastFood favoriteFastFood)
         {
@@ -63,7 +63,7 @@ namespace FavoriteThingsAPI.Controllers
             return NoContent();
         }
 
-        // DELETE: api/FavoriteFastFoods/5
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFavoriteFastFood(int id)
         {

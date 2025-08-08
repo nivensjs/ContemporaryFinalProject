@@ -17,14 +17,14 @@ namespace FavoriteThingsAPI.Controllers
             _context = context;
         }
 
-        // GET: api/TeamMembers
+        // GET
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TeamMember>>> GetTeamMembers(int? id)
         {
             if (id == null || id == 0)
             {
                 var teamMembers = await _context.TeamMembers.Take(5).ToListAsync();
-                Console.WriteLine("TeamMembers: " + JsonConvert.SerializeObject(teamMembers)); // Debugging log
+                Console.WriteLine("TeamMembers: " + JsonConvert.SerializeObject(teamMembers));
                 return teamMembers;
             }
 
@@ -38,7 +38,7 @@ namespace FavoriteThingsAPI.Controllers
             return Ok(teamMember);
         }
 
-        // POST: api/TeamMembers
+        // POST
         [HttpPost]
         public async Task<ActionResult<TeamMember>> PostTeamMember(TeamMember teamMember)
         {
@@ -48,7 +48,7 @@ namespace FavoriteThingsAPI.Controllers
             return CreatedAtAction("GetTeamMembers", new { id = teamMember.Id }, teamMember);
         }
 
-        // PUT: api/TeamMembers/5
+        // PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTeamMember(int id, TeamMember teamMember)
         {
@@ -63,7 +63,7 @@ namespace FavoriteThingsAPI.Controllers
             return NoContent();
         }
 
-        // DELETE: api/TeamMembers/5
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTeamMember(int id)
         {

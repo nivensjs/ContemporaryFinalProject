@@ -1,5 +1,6 @@
 ﻿using FavoriteThingsAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace FavoriteThingsAPI.Data
 {
@@ -21,10 +22,10 @@ namespace FavoriteThingsAPI.Data
                 new TeamMember
                 {
                     Id = 1,
-                    FullName = "Riley Heitkamp",
-                    Birthdate = new DateTime(2003, 10, 13),
-                    CollegeProgram = "Contemporary Programming",
-                    YearInProgram = "Junior"
+                    FullName = "",
+                    Birthdate = DateTime.MinValue,
+                    CollegeProgram = "",
+                    YearInProgram = ""
                 });
 
             // Seed Favorite Foods
@@ -32,11 +33,11 @@ namespace FavoriteThingsAPI.Data
                 new FavoriteFood
                 {
                     Id = 1,
-                    Protein = "Beef",
-                    Vegetables = "Potatoes",
-                    Fruit = "Strawberries",
-                    Grain = "Rice",
-                    Dairy = "Cheese"
+                    Protein = "",
+                    Vegetables = "",
+                    Fruit = "",
+                    Grain = "",
+                    Dairy = ""
                 });
 
             // Seed Favorite Superhero Media
@@ -44,11 +45,11 @@ namespace FavoriteThingsAPI.Data
                 new FavoriteSuperheroMedia
                 {
                     Id = 1,
-                    FavoriteHero = "Batman",
-                    FavoriteVillain = "Joker",
-                    FavoriteMovie = "Spiderman: No Way Home",
-                    FavoriteTVShow = "Loki",
-                    FavoriteVideoGame = "Batman: Arkham City"
+                    FavoriteHero = "",
+                    FavoriteVillain = "",
+                    FavoriteMovie = "",
+                    FavoriteTVShow = "",
+                    FavoriteVideoGame = ""
                 });
 
             // Seed Favorite Fast Food
@@ -56,14 +57,16 @@ namespace FavoriteThingsAPI.Data
                 new FavoriteFastFood
                 {
                     Id = 1,
-                    Burgers = "Culvers",
-                    Fries = "McDonald's",
-                    ChickenSandwich = "Wendy's",
-                    FriedChicken = "Popeyes",
-                    Pizza = "Dominoes"
+                    Burgers = "",
+                    Fries = "",
+                    ChickenSandwich = "",
+                    FriedChicken = "",
+                    Pizza = ""
                 });
         }
     }
 }
+
+
 
 
